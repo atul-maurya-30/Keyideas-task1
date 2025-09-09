@@ -1,0 +1,53 @@
+:root {
+  --dark: #0f172a;
+  --muted: #6b7280;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--dark);
+  margin: 0;
+  background: #fff;
+}
+
+/* HERO */
+.hero {
+  padding: 4rem 0 2rem;
+  background: linear-gradient(to bottom, #fff, #faf7f6);
+  text-align: center;
+}
+
+/* RING CAROUSEL */
+.ring-stage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.ring-item {
+  position: absolute;
+  /* top: 50%; */
+  /* left: 50%; */
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  cursor: pointer;
+}
+
+.ring-item img {
+  width: 180px;
+  max-width: 180px;
+  border-radius: 8px;
+}
+
+/* COLLECTIONS CARDS */
+.collection-row .card {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
+}
+
+.collection-row .card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

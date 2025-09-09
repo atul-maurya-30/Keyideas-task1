@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dimendSCAASI — Vintage & Antique</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Optional: Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand brand" href="#">dimend<span class="brand-strong">SCAASI</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#diamonds">Diamonds</a></li>
+        <li class="nav-item"><a class="nav-link" href="#accessories">Accessories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#fine-jewelry">Fine Jewelry</a></li>
+        <li class="nav-item"><a class="nav-link" href="#watches">Watches</a></li>
+        <li class="nav-item ms-lg-3"><button class="btn btn-outline-dark btn-sm" id="searchBtn">Search</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container text-center">
+    <h1 class="title">Vintage & Antique</h1>
+    <div class="price">$4,500</div>
+    <p class="lead text-muted">Take 20% off for a limited time — Use Code: <strong>LOVE20</strong></p>
+    <a href="#collections" class="view-detail">View Details</a>
+
+    <div class="ring-stage" id="ringStage" role="list">
+      <div class="ring-item" data-idx="0"><img src="ring1.png" alt="Ring 1"></div>
+      <div class="ring-item" data-idx="1"><img src="ring2.png" alt="Featured Ring"></div>
+      <div class="ring-item" data-idx="2"><img src="ring3.png" alt="Ring 3"></div>
+
+    </div>
+  </div>
+</header>
+
+<!-- COLLECTIONS -->
+<section id="collections" class="py-5">
+  <div class="container">
+    <div class="row g-3 collection-row">
+      <div class="col-6 col-md-3">
+        <div class="card h-100 text-center">
+          <img src="ring1.png" class="card-img-top" alt="Wedding Rings">
+          <div class="card-body py-2">
+            <h6 class="mb-0">Wedding Rings</h6>
+            <small class="text-muted d-block">Every diamond in our collection</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card h-100 text-center">
+          <img src="ring2.png" class="card-img-top" alt="Engagement Rings">
+          <div class="card-body py-2">
+            <h6 class="mb-0">Engagement Rings</h6>
+            <small class="text-muted d-block">Fancy and classic</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card h-100 text-center">
+          <img src="ring3.png" class="card-img-top" alt="Fine Jewelry">
+          <div class="card-body py-2">
+            <h6 class="mb-0">Fine Jewelry</h6>
+            <small class="text-muted d-block">Curated pieces</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card h-100 text-center">
+          <img src="ring4.png" class="card-img-top" alt="Latest Rings">
+          <div class="card-body py-2">
+            <h6 class="mb-0">Latest Rings</h6>
+            <small class="text-muted d-block">New arrivals</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-4 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h6>About Us</h6>
+        <p class="small text-muted">dimend SCAASI™ and InnerView® are Registered Trademarks of dimend SCAASI Ltd. © 2010-2025 dimend SCAASI Ltd.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Customer Care</h6>
+        <ul class="list-unstyled small">
+          <li>Contact Us</li>
+          <li>Terms Of Use</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>Contact</h6>
+        <p class="small text-muted">Chicago, IL • support@dimendscaasi.example</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
