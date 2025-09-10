@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DimendSCAASI</title>
+    <meta name="description" content="SCAASI Jeweler - Premium lab-created diamonds and fine jewelry in Chicago. 20+ years of trust, exceptional quality, and eco-conscious choices.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <!-- <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'luxury-gold': '#D4AF37',
+                        'luxury-dark': '#1a1a1a',
+                        'luxury-cream': '#F8F6F0',
+                        'luxury-gray': '#6B7280'
+                    }
+                }
+            }
+        }
+    </script> -->
+</head>
+<body class="font-sans text-gray-900 bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm text-luxury-gray border-b border-gray-100">
+                <div class="flex items-center space-x-4">
+                    <span><i class="fas fa-phone mr-1"></i> Call us: (555) 123-4567</span>
+                    <span><i class="fas fa-envelope mr-1"></i> info@scaasijeweler.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="bg-luxury-gold text-white px-3 py-1 rounded text-xs font-medium">Use Code: LOVE20</span>
+                    <div class="flex space-x-2">
+                        <a href="#" class="hover:text-luxury-gold transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-luxury-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-luxury-gold transition-colors"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="flex justify-between items-center py-4">
+                <div class="logo">
+                    <h1 class="text-3xl font-serif font-bold text-luxury-dark">SCAASI <span class="text-luxury-gold">Jeweler</span></h1>
+                    <p class="text-xs text-luxury-gray mt-1">Premium Lab-Created Diamonds</p>
+                </div>
+                
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="#home" class="hover:text-luxury-gold transition-colors">Home</a></li>
+                    <li class="relative group">
+                        <a href="#collections" class="hover:text-luxury-gold transition-colors flex items-center">
+                            Collections <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="#engagement-rings" class="block py-2 hover:text-luxury-gold">Engagement Rings</a>
+                            <a href="#wedding-rings" class="block py-2 hover:text-luxury-gold">Wedding Rings</a>
+                            <a href="#fine-jewelry" class="block py-2 hover:text-luxury-gold">Fine Jewelry</a>
+                            <a href="#vintage-antique" class="block py-2 hover:text-luxury-gold">Vintage & Antique</a>
+                            <a href="#watches" class="block py-2 hover:text-luxury-gold">Watches</a>
+                            <a href="#accessories" class="block py-2 hover:text-luxury-gold">Accessories</a>
+                        </div>
+                    </li>
+                    <li><a href="#diamonds" class="hover:text-luxury-gold transition-colors">Diamonds</a></li>
+                    <li><a href="#education" class="hover:text-luxury-gold transition-colors">Education</a></li>
+                    <li><a href="#about" class="hover:text-luxury-gold transition-colors">About Us</a></li>
+                    <li><a href="#contact" class="hover:text-luxury-gold transition-colors">Contact</a></li>
+                </ul>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="hover:text-luxury-gold transition-colors"><i class="fas fa-search"></i></button>
+                    <button class="hover:text-luxury-gold transition-colors"><i class="fas fa-heart"></i></button>
+                    <button class="hover:text-luxury-gold transition-colors"><i class="fas fa-shopping-cart"></i></button>
+                    <button id="mobile-menu-btn" class="md:hidden"><i class="fas fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-serif font-bold">Menu</h2>
+                <button id="close-mobile-menu"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <nav class="space-y-4">
+                <a href="#home" class="block py-2 text-lg">Home</a>
+                <a href="#collections" class="block py-2 text-lg">Collections</a>
+                <a href="#diamonds" class="block py-2 text-lg">Diamonds</a>
+                <a href="#education" class="block py-2 text-lg">Education</a>
+                <a href="#about" class="block py-2 text-lg">About Us</a>
+                <a href="#contact" class="block py-2 text-lg">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-luxury-cream via-white to-luxury-cream py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <div class="bg-luxury-gold text-white px-4 py-2 rounded-full inline-block mb-6">
+                        <span class="text-sm font-medium">Take 20% off for a limited time</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-serif font-bold text-luxury-dark mb-6 leading-tight">
+                        Lab-Created <br>
+                        <span class="text-luxury-gold">Diamonds</span> <br>
+                        That Dazzle
+                    </h1>
+                    <p class="text-xl text-luxury-gray mb-8 leading-relaxed max-w-lg">
+                        Our lab created diamonds are eco-conscious choices that exhibit the same sparkle as natural diamonds, 
+                        with superior cut, symmetry, and shape.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-luxury-gold text-white px-8 py-4 rounded-lg font-medium hover:bg-yellow-600 transition-colors">
+                            Explore Loose Diamonds
+                        </button>
+                        <button class="border-2 border-luxury-gold text-luxury-gold px-8 py-4 rounded-lg font-medium hover:bg-luxury-gold hover:text-white transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <div class="relative">
+                        <div class="w-96 h-96 bg-gradient-to-br from-luxury-gold/20 to-transparent rounded-full absolute -top-8 -right-8"></div>
+                        <div class="relative bg-white p-8 rounded-2xl shadow-2xl">
+                            <div class="text-center">
+                                <div class="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-gem text-6xl text-blue-400"></i>
+                                </div>
+                                <h3 class="text-2xl font-serif font-bold mb-2">Premium Quality</h3>
+                                <p class="text-luxury-gray">Every diamond selected for excellence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section id="collections" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-luxury-dark mb-4">Our Collections</h2>
+                <p class="text-xl text-luxury-gray max-w-2xl mx-auto">
+                    Discover our elegant and unique fine jewelry collections, ranging from classic diamond studs to stylish pendants and dazzling bracelets.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Engagement Rings -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-50 to-pink-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-ring text-6xl text-pink-400 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Engagement Rings</h3>
+                            <p class="text-luxury-gray mb-4">Every diamond in our collection is selected for its superior cut, symmetry, and shape.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wedding Rings -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gold-50 to-yellow-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-heart text-6xl text-yellow-500 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Wedding Rings</h3>
+                            <p class="text-luxury-gray mb-4">Celebrate your eternal bond with our exquisite wedding ring collection.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fine Jewelry -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-gem text-6xl text-purple-400 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Fine Jewelry</h3>
+                            <p class="text-luxury-gray mb-4">Elegant pieces crafted with precision and attention to detail.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vintage & Antique -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-crown text-6xl text-amber-500 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Vintage & Antique</h3>
+                            <p class="text-luxury-gray mb-4">Timeless pieces with history and character.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Watches -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-clock text-6xl text-blue-400 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Watches</h3>
+                            <p class="text-luxury-gray mb-4">Precision timepieces that complement your style.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Accessories -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 p-8 h-80 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-star text-6xl text-green-400 mb-4"></i>
+                            <h3 class="text-2xl font-serif font-bold text-luxury-dark mb-2">Accessories</h3>
+                            <p class="text-luxury-gray mb-4">Perfect finishing touches for every occasion.</p>
+                            <span class="text-luxury-gold font-medium group-hover:underline">Explore Collection →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Rings Showcase -->
+    <section class="py-20 bg-luxury-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-luxury-dark mb-4">Latest Rings</h2>
+                <p class="text-xl text-luxury-gray">Discover our newest additions featuring stunning designs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured Ring 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                    <div class="h-64 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+                        <i class="fas fa-gem text-6xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Hidden Halo</h3>
+                        <p class="text-luxury-gray mb-4">Elegant design with subtle sparkle</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-luxury-gold">$4,500</span>
+                            <button class="bg-luxury-gold text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Ring 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                    <div class="h-64 bg-gradient-to-br from-pink-100 to-pink-50 flex items-center justify-center">
+                        <i class="fas fa-heart text-6xl text-pink-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Oval Collection</h3>
+                        <p class="text-luxury-gray mb-4">Classic oval cut with modern setting</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-luxury-gold">$3,200</span>
+                            <button class="bg-luxury-gold text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Ring 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                    <div class="h-64 bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+                        <i class="fas fa-ring text-6xl text-purple-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Solitaire Classic</h3>
+                        <p class="text-luxury-gray mb-4">Timeless elegance in perfect form</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-luxury-gold">$2,800</span>
+                            <button class="bg-luxury-gold text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Quality Features -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-luxury-dark mb-4">Why Choose SCAASI?</h2>
+                <p class="text-xl text-luxury-gray">Premium quality with 20+ years of trusted service in Chicago</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">20+ Years Of Trust</h3>
+                    <p class="text-luxury-gray">Serving Chicago with exceptional quality and style since our founding.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Eco-Conscious Choice</h3>
+                    <p class="text-luxury-gray">Lab-created diamonds that are environmentally responsible and ethically sourced.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-luxury-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-gem text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Superior Quality</h3>
+                    <p class="text-luxury-gray">Every diamond selected for its superior cut, symmetry, and brilliant sparkle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20 bg-luxury-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-serif font-bold mb-4">Keep In Touch</h2>
+                <p class="text-xl text-gray-300 mb-8">Enter your email ID to subscribe and get the latest updates on our collections</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email address" 
+                        class="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-luxury-gold"
+                        required
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-luxury-gold text-white px-8 py-4 rounded-lg font-medium hover:bg-yellow-600 transition-colors"
+                    >
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">SCAASI <span class="text-luxury-gold">Jeweler</span></h3>
+                    <p class="text-gray-300 mb-4">A unique jewelry store located in Chicago with an emphasis on great style and exceptional quality.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-300 hover:text-luxury-gold transition-colors">About Us</a></li>
+                        <li><a href="#collections" class="text-gray-300 hover:text-luxury-gold transition-colors">Our Collection</a></li>
+                        <li><a href="#education" class="text-gray-300 hover:text-luxury-gold transition-colors">Education</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-luxury-gold transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Care -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Customer Care</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors">Customer Care</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors">Feedback</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors">Inquiry</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-luxury-gold transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Chicago, IL</p>
+                        <p><i class="fas fa-phone mr-2"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope mr-2"></i> info@scaasijeweler.com</p>
+                        <p><i class="fas fa-clock mr-2"></i> Mon-Sat: 10AM-8PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
+                <p>&copy; 2010-2024 SCAASI Jeweler Ltd. All rights reserved.</p>
+                <p class="mt-2 text-sm">
+                    SCAASI and InnerView® are Registered Trademarks of SCAASI Ltd. | 
+                    <a href="#" class="hover:text-luxury-gold transition-colors">Terms Of Use</a> | 
+                    <a href="#" class="hover:text-luxury-gold transition-colors">Sitemap</a> | 
+                    <a href="#" class="hover:text-luxury-gold transition-colors">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-luxury-gold text-white w-12 h-12 rounded-full shadow-lg hover:bg-yellow-600 transition-colors opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

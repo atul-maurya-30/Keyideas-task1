@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Diamond Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+        
+        .card {
+            position: absolute;
+            width: 220px;
+            height: 350px;
+            background: white;
+            /* border-radius: 12px; */
+            border:#dadadb solid 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            transition: all 0.5s ease;
+            backface-visibility: hidden;
+            cursor: pointer;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            /* -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0,0,0,0.4)); */
+        }
+        
+        .card-img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fd7e14;
+        }
+        
+        .card-desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        
+        .navigation {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .nav-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #3498db;
+            transform: scale(1.3);
+        }
+        
+        .instructions {
+            margin-top: 40px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instructions p {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .instructions kbd {
+            background: #f8f9fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .carousel-container {
+                height: 350px;
+            }
+            
+            .card {
+                width: 180px;
+                height: 300px;
+            }
+            
+            .card-img {
+                max-width: 70%;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Diamond Collection</h1>
+        <p class="subtitle">Explore our premium selection of diamond shapes, each with unique characteristics and beauty.</p>
+        
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div class="dots" id="dots">
+            <!-- Dots will be dynamically inserted here -->
+        </div>
+        
+        <div class="instructions">
+            <p><strong>How to use:</strong> Click on the left or right side of the carousel to navigate, or use the navigation buttons.</p>
+            <p>You can also use keyboard arrows: <kbd>←</kbd> <kbd>→</kbd></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel');
+            const dotsContainer = document.getElementById('dots');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Card data matching the image
+            const cardData = [
+                { title: "Round", desc: "Every diamond in our collection", img: "card1.png" },
+                { title: "Emerald", desc: "Every diamond in our collection", img: "card2.png" },
+                { title: "Round", desc: "Every diamond in our collection", img: "card3.png" },
+                { title: "Oval", desc: "Every diamond in our collection", img: "card4.png" },
+                { title: "Heart", desc: "Every diamond in our collection", img: "card4.png" },
+                { title: "Asscher", desc: "Every diamond in our collection", img: "ring1.png" },
+                { title: "Heart", desc: "Every diamond in our collection", img: "ring2.png" }
+            ];
+            
+            let currentIndex = Math.floor(cardData.length / 2); // Start with middle card centered
+            const totalCards = cardData.length;
+            const visibleCards = 7; // Show all 7 cards
+            
+            // Initialize carousel
+            function initCarousel() {
+                // Create cards
+                carousel.innerHTML = '';
+                cardData.forEach((data, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <img src="${data.img}" class="card-img" alt="${data.title}">
+                        <h3 class="card-title">${data.title}</h3>
+                        <p class="card-desc">${data.desc}</p>
+                    `;
+                    carousel.appendChild(card);
+                });
+                
+                // Create dots
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalCards; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'dot';
+                    if (i === currentIndex) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToCard(i);
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                
+                positionCards();
+            }
+            
+            // Position cards in 3D space
+            // Position cards in 3D space
+function positionCards() {
+    const cards = document.querySelectorAll('.card');
+    const centerIndex = Math.floor(visibleCards / 2);
+    
+    cards.forEach((card, index) => {
+        // Calculate position relative to center
+        let position = index - currentIndex;
+        
+        // Handle wrapping for circular carousel (shortest path)
+        if (position < -totalCards / 2) position += totalCards;
+        if (position > totalCards / 2) position -= totalCards;
+        
+        // Calculate properties based on position
+        const absPos = Math.abs(position);
+        const zIndex = visibleCards - absPos;
+        const scale = 1 - absPos * 0.01; // Reduced scaling factor for subtler height variation
+        const offsetX = position * 180; // Adjusted for overlap
+        const rotateDeg = -position * 15; // Tilt for 3D plane effect
+        const zTranslate = -absPos * 0; // Subtle depth
+        
+        // Apply styles
+        card.style.opacity = '1';
+        card.style.zIndex = zIndex;
+        card.style.pointerEvents = 'all';
+        card.style.transform = `translate3d(${offsetX}px, 0, ${zTranslate}px) rotateY(${rotateDeg}deg) scale(${scale})`;
+        
+        // Add active class to center card
+        if (position === 0) {
+            card.classList.add('active');
+        } else {
+            card.classList.remove('active');
+        }
+    });
+    
+    updateDots();
+}
+            // Update dot indicators
+            function updateDots() {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Go to specific card
+            function goToCard(index) {
+                currentIndex = index;
+                positionCards();
+            }
+            
+            // Next card
+            function nextCard() {
+                currentIndex = (currentIndex + 1) % totalCards;
+                positionCards();
+            }
+            
+            // Previous card
+            function prevCard() {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                positionCards();
+            }
+            
+            // Click on carousel container to navigate
+            carousel.parentElement.addEventListener('click', (e) => {
+                const rect = carousel.parentElement.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                
+                if (clickX < width / 3) {
+                    // Clicked on left third
+                    prevCard();
+                } else if (clickX > (width / 3) * 2) {
+                    // Clicked on right third
+                    nextCard();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevCard();
+                } else if (e.key === 'ArrowRight') {
+                    nextCard();
+                }
+            });
+            
+            // Button event listeners
+            prevBtn.addEventListener('click', prevCard);
+            nextBtn.addEventListener('click', nextCard);
+            
+            // Initialize the carousel
+            initCarousel();
+            
+            // Auto rotation
+            let autoRotate = setInterval(nextCard, 4000);
+            
+            // Pause auto rotation on hover
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(autoRotate);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                autoRotate = setInterval(nextCard, 4000);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,125 +10,291 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Optional: Inter font -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-  <div class="container">
-    <a class="navbar-brand brand" href="#">dimend<span class="brand-strong">SCAASI</span></a>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Brand on the left -->
+      <a class="navbar-brand brand" href="#">
+        dimend<span class="brand-strong fw-bolder"><b>SCAASI</b></span>
+      </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <!-- Centered navigation (will collapse on mobile) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Centered navigation items -->
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#diamonds">Diamonds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#accessories">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#fine-jewelry">Fine Jewelry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#watches">Watches</a>
+          </li>
+        </ul>
+
+        <!-- Icons on the right -->
+        <div class="d-flex">
+          <button class="btn btn-link">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn btn-link">
+            <i class="far fa-heart"></i>
+          </button>
+          <button class="btn btn-link">
+            <i class="fas fa-user"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <div class="container d-flex justify-content-between mt-1 mb-0 align-items-center p-80 d-none d-md-flex">
+    <!-- Left button: Inquiry -->
+    <button class="btn btn-link text-dark p-0 d-flex align-items-center gap-2">
+      <i class="fas fa-newspaper"></i>
+      <span>Inquiry</span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="#diamonds">Diamonds</a></li>
-        <li class="nav-item"><a class="nav-link" href="#accessories">Accessories</a></li>
-        <li class="nav-item"><a class="nav-link" href="#fine-jewelry">Fine Jewelry</a></li>
-        <li class="nav-item"><a class="nav-link" href="#watches">Watches</a></li>
-        <li class="nav-item ms-lg-3"><button class="btn btn-outline-dark btn-sm" id="searchBtn">Search</button></li>
-      </ul>
-    </div>
+    <!-- Right button: Feedback -->
+    <button class="btn btn-link text-dark p-0 d-flex align-items-center gap-2">
+      <i class="fas fa-user"></i>
+      <span>Feedback</span>
+    </button>
   </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="container text-center">
-    <h1 class="title">Vintage & Antique</h1>
-    <div class="price">$4,500</div>
-    <p class="lead text-muted">Take 20% off for a limited time — Use Code: <strong>LOVE20</strong></p>
-    <a href="#collections" class="view-detail">View Details</a>
 
-    <div class="ring-stage" id="ringStage" role="list">
-      <div class="ring-item" data-idx="0"><img src="ring1.png" alt="Ring 1"></div>
-      <div class="ring-item" data-idx="1"><img src="ring2.png" alt="Featured Ring"></div>
-      <div class="ring-item" data-idx="2"><img src="ring3.png" alt="Ring 3"></div>
-
-    </div>
-  </div>
-</header>
-
-<!-- COLLECTIONS -->
-<section id="collections" class="py-5">
-  <div class="container">
-    <div class="row g-3 collection-row">
-      <div class="col-6 col-md-3">
-        <div class="card h-100 text-center">
-          <img src="ring1.png" class="card-img-top" alt="Wedding Rings">
-          <div class="card-body py-2">
-            <h6 class="mb-0">Wedding Rings</h6>
-            <small class="text-muted d-block">Every diamond in our collection</small>
-          </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container text-center">
+      <!-- Ring Carousel - Placed first to appear above text -->
+      <div class="ring-stage" id="ringStage" role="list">
+        <div class="ring-bg-title" id="ringBgTitle">Vintage & Antique</div>
+        <div class="ring-item side-left" data-idx="0" data-title="Vintage & Antique" data-price="$14000"
+          data-desc="This book offers a limited time. Use code DXF20">
+          <img src="ring-1.png" alt="Ring 1">
+        </div>
+        <div class="ring-item center" data-idx="1" data-title="Hidden Halo" data-price="$5200"
+          data-desc="Classic hidden halo design, elegant and timeless.">
+          <img src="ring-2.png" alt="Ring 2">
+        </div>
+        <div class="ring-item side-right" data-idx="2" data-title="Oval Cut" data-price="$6100"
+          data-desc="Stylish oval cut diamond with stunning brilliance.">
+          <img src="ring-3.png" alt="Ring 3">
         </div>
       </div>
 
-      <div class="col-6 col-md-3">
-        <div class="card h-100 text-center">
-          <img src="ring2.png" class="card-img-top" alt="Engagement Rings">
-          <div class="card-body py-2">
-            <h6 class="mb-0">Engagement Rings</h6>
-            <small class="text-muted d-block">Fancy and classic</small>
+      <!-- Text content below the images -->
+      <h1 class="title" id="ringTitle">Vintage & Antique</h1>
+      <div class="price" id="ringPrice">$14000</div>
+      <p class="lead text-muted" id="ringDesc">This book offers a limited time. Use code <strong><b>DXF20</b></strong>
+      </p>
+      <a href="#collections" class="btn btn-dark view-detail">View Details</a>
+      <div class="social-buttons">
+        <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <!-- Scroll arrow -->
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <!-- Our Collection Section -->
+      <section class="collections-section">
+        <div class="container">
+          <h2 class="collections-title text-center">Our Collection</h2>
+          <p class="collections-description text-center">Discover our elegant and unique fine jewelry
+            collections,<br>ranging from classic diamond studs to stylish pendants<br>and dazzling bracelets.</p>
+
+          <div class="row collection-cards">
+            <!-- Wedding Rings Card -->
+            <div class="col-md-3 col-6 mb-4">
+              <div class="collection-card">
+                <div class="card-image-c">
+                  <img src="card1.png" alt="Wedding Rings" class="img-fluid">
+                </div>
+                <div class="card-content">
+                  <h5 class="card-tit">Wedding Rings</h5>
+                  <p class="card-text">Every diamond in our collection</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Engagement Rings Card -->
+            <div class="col-md-3 col-6 mb-4">
+              <div class="collection-card">
+                <div class="card-image-c">
+                  <img src="card2.png" alt="Engagement Rings" class="img-fluid">
+                </div>
+                <div class="card-content">
+                  <h5 class="card-tit">Engagement Rings</h5>
+                  <p class="card-text">Every diamond in our collection</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fine Jewelry Card -->
+            <div class="col-md-3 col-6 mb-4">
+              <div class="collection-card">
+                <div class="card-image-c">
+                  <img src="card3.png" alt="Fine Jewelry" class="img-fluid">
+                </div>
+                <div class="card-content">
+                  <h5 class="card-tit">Fine Jewelry</h5>
+                  <p class="card-text">Every diamond in our collection</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Latest Rings Card -->
+            <div class="col-md-3 col-6 mb-4">
+              <div class="collection-card">
+                <div class="card-image-c">
+                  <img src="card4.png" alt="Latest Rings" class="img-fluid">
+                </div>
+                <div class="card-content">
+                  <h5 class="card-tit">Latest Rings</h5>
+                  <p class="card-text">Every diamond in our collection</p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <!-- LOOSE DIAMONDS -->
+  <!-- 3D DIAMOND CAROUSEL -->
+  <section id="loose-diamonds" class="py-5">
+    <div class="container text-center">
+      <h3 class="mb-3">Explore Loose Diamonds</h3>
+      <p class="text-muted mb-4">Every diamond in our collection is selected for its supplied cut, symmetry, and shape.
+      </p>
+
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+          <!-- Cards will be dynamically inserted here -->
         </div>
       </div>
 
-      <div class="col-6 col-md-3">
-        <div class="card h-100 text-center">
-          <img src="ring3.png" class="card-img-top" alt="Fine Jewelry">
-          <div class="card-body py-2">
-            <h6 class="mb-0">Fine Jewelry</h6>
-            <small class="text-muted d-block">Curated pieces</small>
-          </div>
-        </div>
+      <div class="navigation">
+        <button class="nav-btn" id="prevBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn" id="nextBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
 
-      <div class="col-6 col-md-3">
-        <div class="card h-100 text-center">
-          <img src="ring4.png" class="card-img-top" alt="Latest Rings">
-          <div class="card-body py-2">
-            <h6 class="mb-0">Latest Rings</h6>
-            <small class="text-muted d-block">New arrivals</small>
-          </div>
+      <div class="dots" id="dots">
+        <!-- Dots will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+<div class="container1">
+  <div class="container py-5">
+
+    <!-- Top Section: Keep In Touch + Images -->
+    <div class="row align-items-start g-4 mb-5">
+
+      <!-- Left: Keep In Touch -->
+      <div class="col-md-6">
+        <h3 class="fw-bold mb-3">Keep In Touch</h3>
+        <p class="text-muted mb-4">
+          Our lab created diamonds are the <br> eco-conscious choice, and exhibit <br>the same sparkle as natural
+          diamonds.
+        </p>
+        <form id="subscribeForm" class="subscribe-form">
+          <input type="email" id="subscriberEmail" placeholder="Enter your email Id to subscribe" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Right: Image Grid -->
+      <div class="col-md-6">
+        <div class="image-grid">
+          <img src="images/img1.png" alt="Jewelry 1">
+          <img src="images/img2.png" alt="Jewelry 2">
+          <img src="images/img3.png" alt="Jewelry 3">
+          <img src="images/img4.png" alt="Jewelry 4">
         </div>
       </div>
     </div>
-  </div>
-</section>
+</div>
+    <hr>
 
-<!-- FOOTER -->
-<footer class="py-4 bg-dark text-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h6>About Us</h6>
-        <p class="small text-muted">dimend SCAASI™ and InnerView® are Registered Trademarks of dimend SCAASI Ltd. © 2010-2025 dimend SCAASI Ltd.</p>
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer class="footer">
+      <!-- Middle Section: Brand -->
+      <div class="text-center my-5">
+        <a class="navbar-brand brand" href="#">
+          dimend<span class="brand-strong fw-bolder"><b>SCAASI</b></span>
+        </a>
+        <p class="text-danger small">20+ Years Of Trust</p>
+        <p class="text-muted">
+          dimend SCAASI Jeweler is a unique Jewelry store located in <br>Chicago with an emphasis on great style
+          and exceptional quality.
+        </p>
       </div>
-      <div class="col-md-4">
-        <h6>Customer Care</h6>
-        <ul class="list-unstyled small">
-          <li>Contact Us</li>
-          <li>Terms Of Use</li>
-          <li>Privacy Policy</li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h6>Contact</h6>
-        <p class="small text-muted">Chicago, IL • support@dimendscaasi.example</p>
-      </div>
-    </div>
-  </div>
-</footer>
 
-<!-- Bootstrap JS bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+      <hr>
+
+      <!-- Bottom Section: Links + Logos -->
+      <div class="text-center">
+        <div class="footer-links mb-4">
+          <a href="#">Education</a>
+          <a href="#">About Us</a>
+          <a href="#">Customer Care</a>
+          <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-logos mb-4 gap-1">
+          <img src="images/logos/gia.png" alt="GIA">
+          <img src="images/logos/jewel.png" alt="Jewelers of America">
+          <img src="images/logos/jvc.png" alt="JVC">
+          <img src="images/logos/bbb.png" alt="BBB">
+          <img src="images/logos/visa.png" alt="Visa">
+          <img src="images/logos/master.png" alt="MasterCard">
+          <img src="images/logos/discover.png" alt="Discover">
+          <img src="images/logos/paypal.png" alt="PayPal">
+          <img src="images/logos/american.png" alt="American Express">
+        </div>
+
+        <p class="small text-muted mb-0">
+          dimendSCAASI™ and InnerView® are Registered Trademarks of dimend SCAASI Ltd.
+          © 2010-2025 dimend SCAASI Ltd. Terms Of Use | Sitemap | Privacy Policy
+        </p>
+      </div>
+  </div>
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
