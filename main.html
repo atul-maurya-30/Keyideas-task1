@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Dimend SCAASI offers vintage & antique jewelry, diamonds, fine jewelry and watches. Explore our collection of engagement rings, wedding rings and luxury accessories.">
   <title>dimendSCAASI — Vintage & Antique</title>
 
   <!-- Bootstrap CSS -->
@@ -20,7 +22,7 @@
 </head>
 
 <body>
-
+  <a href="#hero-content" class="skip-link">Skip to main content</a>
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
@@ -54,13 +56,13 @@
 
         <!-- Icons on the right -->
         <div class="d-flex">
-          <button class="btn btn-link">
+          <button class="btn btn-link" aria-label="Search">
             <i class="fas fa-search"></i>
           </button>
-          <button class="btn btn-link">
+          <button class="btn btn-link" aria-label="Favorites">
             <i class="far fa-heart"></i>
           </button>
-          <button class="btn btn-link">
+          <button class="btn btn-link" aria-label="Account">
             <i class="fas fa-user"></i>
           </button>
         </div>
@@ -68,15 +70,17 @@
       </div>
     </div>
   </nav>
+  <!-- In the navbar section, modify the inquiry button -->
   <div class="container d-flex justify-content-between mt-1 mb-0 align-items-center p-80 d-none d-md-flex">
-    <!-- Left button: Inquiry -->
-    <button class="btn btn-link text-dark p-0 d-flex align-items-center gap-2">
+    <!-- Left button: Inquiry - Now links to the Keep In Touch section -->
+    <a href="#keep-in-touch" class="btn btn-link text-dark p-0 d-flex align-items-center gap-2 text-decoration-none"
+      aria-label="Inquiry form">
       <i class="fas fa-newspaper"></i>
       <span>Inquiry</span>
-    </button>
+    </a>
 
     <!-- Right button: Feedback -->
-    <button class="btn btn-link text-dark p-0 d-flex align-items-center gap-2">
+    <button class="btn btn-link text-dark p-0 d-flex align-items-center gap-2" aria-label="Feedback">
       <i class="fas fa-user"></i>
       <span>Feedback</span>
     </button>
@@ -84,22 +88,23 @@
 
 
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" role="banner" id="hero-content">
     <div class="container text-center">
       <!-- Ring Carousel - Placed first to appear above text -->
-      <div class="ring-stage" id="ringStage" role="list">
+      <div class="ring-stage" id="ringStage" role="list" aria-label="Featured rings carousel">
         <div class="ring-bg-title" id="ringBgTitle">Vintage & Antique</div>
-        <div class="ring-item side-left" data-idx="0" data-title="Vintage & Antique" data-price="$14000"
-          data-desc="This book offers a limited time. Use code DXF20">
-          <img src="ring-1.png" alt="Ring 1">
+        <div class="ring-item side-left" role="img" aria-label="Vintage and antique diamond ring" data-idx="0"
+          data-title="Vintage & Antique" data-price="$14000"
+          data-desc="This book offers a limited time. <br> Use code DXF20">
+          <img src="images/ring-1.webp" alt="Ring 1">
         </div>
-        <div class="ring-item center" data-idx="1" data-title="Hidden Halo" data-price="$5200"
-          data-desc="Classic hidden halo design, elegant and timeless.">
-          <img src="ring-2.png" alt="Ring 2">
+        <div class="ring-item center" role="img" aria-label="Hidden halo diamond ring" data-idx="1"
+          data-title="Hidden Halo" data-price="$5200" data-desc="Classic hidden halo design, elegant and timeless.">
+          <img src="images/ring-2.webp" alt="Ring 2">
         </div>
-        <div class="ring-item side-right" data-idx="2" data-title="Oval Cut" data-price="$6100"
-          data-desc="Stylish oval cut diamond with stunning brilliance.">
-          <img src="ring-3.png" alt="Ring 3">
+        <div class="ring-item side-right" role="img" aria-label="Oval cut diamond ring" data-idx="2"
+          data-title="Oval Cut" data-price="$6100" data-desc="Stylish oval cut diamond with stunning brilliance.">
+          <img src="images/ring-3.webp" alt="Ring 3">
         </div>
       </div>
 
@@ -110,9 +115,11 @@
       </p>
       <a href="#collections" class="btn btn-dark view-detail">View Details</a>
       <div class="social-buttons">
-        <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn facebook" aria-label="Visit our Facebook page"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn twitter" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-btn instagram" aria-label="Visit our Instagram page"><i
+            class="fab fa-instagram"></i></a>
       </div>
 
       <!-- Scroll arrow -->
@@ -131,10 +138,10 @@
             <div class="col-md-3 col-6 mb-4">
               <div class="collection-card">
                 <div class="card-image-c">
-                  <img src="card1.png" alt="Wedding Rings" class="img-fluid">
+                  <img src="images/card1.webp" alt="Wedding Rings" class="img-fluid">
                 </div>
                 <div class="card-content">
-                  <h5 class="card-tit">Wedding Rings</h5>
+                  <h4 class="card-tit">Wedding Rings</h4>
                   <p class="card-text">Every diamond in our collection</p>
                 </div>
               </div>
@@ -144,10 +151,10 @@
             <div class="col-md-3 col-6 mb-4">
               <div class="collection-card">
                 <div class="card-image-c">
-                  <img src="card2.png" alt="Engagement Rings" class="img-fluid">
+                  <img src="images/card2.webp" alt="Engagement Rings" class="img-fluid">
                 </div>
                 <div class="card-content">
-                  <h5 class="card-tit">Engagement Rings</h5>
+                  <h4 class="card-tit">Engagement Rings</h4>
                   <p class="card-text">Every diamond in our collection</p>
                 </div>
               </div>
@@ -157,10 +164,10 @@
             <div class="col-md-3 col-6 mb-4">
               <div class="collection-card">
                 <div class="card-image-c">
-                  <img src="card3.png" alt="Fine Jewelry" class="img-fluid">
+                  <img src="images/card3.webp" alt="Fine Jewelry" class="img-fluid">
                 </div>
                 <div class="card-content">
-                  <h5 class="card-tit">Fine Jewelry</h5>
+                  <h4 class="card-tit">Fine Jewelry</h4>
                   <p class="card-text">Every diamond in our collection</p>
                 </div>
               </div>
@@ -170,10 +177,10 @@
             <div class="col-md-3 col-6 mb-4">
               <div class="collection-card">
                 <div class="card-image-c">
-                  <img src="card4.png" alt="Latest Rings" class="img-fluid">
+                  <img src="images/card4.webp" alt="Latest Rings" class="img-fluid">
                 </div>
                 <div class="card-content">
-                  <h5 class="card-tit">Latest Rings</h5>
+                  <h4 class="card-tit">Latest Rings</h4>
                   <p class="card-text">Every diamond in our collection</p>
                 </div>
               </div>
@@ -183,13 +190,13 @@
       </section>
     </div>
   </header>
-
+  <main id="main" role="main">
   <!-- LOOSE DIAMONDS -->
   <!-- 3D DIAMOND CAROUSEL -->
   <section id="loose-diamonds" class="py-5">
     <div class="container text-center">
-      <h3 class="mb-3">Explore Loose Diamonds</h3>
-      <p class="text-muted mb-4">Every diamond in our collection is selected for its supplied cut, symmetry, and shape.
+      <h3 class="mb-3 mt-5"><b>Explore Loose Diamonds</b></h3>
+      <p class="text-muted mb-4">Every diamond in our collection is selected for its <br>supplied cut, symmetry, and shape.
       </p>
 
       <div class="carousel-container">
@@ -213,41 +220,42 @@
     </div>
   </section>
 
-<div class="container1">
-  <div class="container py-5">
+  <div class="container1">
+    <div class="container py-5">
 
-    <!-- Top Section: Keep In Touch + Images -->
-    <div class="row align-items-start g-4 mb-5">
+      <!-- Top Section: Keep In Touch + Images -->
+      <div class="row align-items-start g-4 mb-5">
 
-      <!-- Left: Keep In Touch -->
-      <div class="col-md-6">
-        <h3 class="fw-bold mb-3">Keep In Touch</h3>
-        <p class="text-muted mb-4">
-          Our lab created diamonds are the <br> eco-conscious choice, and exhibit <br>the same sparkle as natural
-          diamonds.
-        </p>
-        <form id="subscribeForm" class="subscribe-form">
-          <input type="email" id="subscriberEmail" placeholder="Enter your email Id to subscribe" required>
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+        <!-- Left: Keep In Touch -->
+        <div class="col-md-6" id="keep-in-touch">
+          <h3 class="fw-bold mb-3">Keep In Touch</h3>
+          <p class="text-muted mb-4">
+            Our lab created diamonds are the <br> eco-conscious choice, and exhibit <br>the same sparkle as natural
+            diamonds.
+          </p>
+          
+          <form id="subscribeForm" class="subscribe-form">
+            <input type="email" id="subscriberEmail" placeholder="Enter your email Id to subscribe" required>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
 
-      <!-- Right: Image Grid -->
-      <div class="col-md-6">
-        <div class="image-grid">
-          <img src="images/img1.png" alt="Jewelry 1">
-          <img src="images/img2.png" alt="Jewelry 2">
-          <img src="images/img3.png" alt="Jewelry 3">
-          <img src="images/img4.png" alt="Jewelry 4">
+        <!-- Right: Image Grid -->
+        <div class="col-md-6">
+          <div class="image-grid">
+            <img src="images/img1.webp" alt="Jewelry 1">
+            <img src="images/img2.webp" alt="Jewelry 2">
+            <img src="images/img3.webp" alt="Jewelry 3">
+            <img src="images/img4.webp" alt="Jewelry 4">
+          </div>
         </div>
       </div>
     </div>
-</div>
     <hr>
-
+    </main>
     <!-- FOOTER -->
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <!-- Middle Section: Brand -->
       <div class="text-center my-5">
         <a class="navbar-brand brand" href="#">
@@ -272,18 +280,18 @@
         </div>
 
         <div class="footer-logos mb-4 gap-1">
-          <img src="images/logos/gia.png" alt="GIA">
-          <img src="images/logos/jewel.png" alt="Jewelers of America">
-          <img src="images/logos/jvc.png" alt="JVC">
-          <img src="images/logos/bbb.png" alt="BBB">
-          <img src="images/logos/visa.png" alt="Visa">
-          <img src="images/logos/master.png" alt="MasterCard">
-          <img src="images/logos/discover.png" alt="Discover">
-          <img src="images/logos/paypal.png" alt="PayPal">
-          <img src="images/logos/american.png" alt="American Express">
+          <img src="images/logos/gia.webp" alt="GIA">
+          <img src="images/logos/jewel.webp" alt="Jewelers of America">
+          <img src="images/logos/jvc.webp" alt="JVC">
+          <img src="images/logos/bbb.webp" alt="BBB">
+          <img src="images/logos/visa.webp" alt="Visa">
+          <img src="images/logos/master.webp" alt="MasterCard">
+          <img src="images/logos/discover.webp" alt="Discover">
+          <img src="images/logos/paypal.webp" alt="PayPal">
+          <img src="images/logos/american.webp" alt="American Express">
         </div>
 
-        <p class="small text-muted mb-0">
+        <p class="small mb-0">
           dimendSCAASI™ and InnerView® are Registered Trademarks of dimend SCAASI Ltd.
           © 2010-2025 dimend SCAASI Ltd. Terms Of Use | Sitemap | Privacy Policy
         </p>

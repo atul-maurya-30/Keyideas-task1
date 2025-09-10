@@ -253,27 +253,33 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('scroll', updateArrowDirection);
 });
 
-// 3D Diamond Carousel Functionality
+
+// 3D Diamond Carousel Functionality - Responsive with preserved tilt
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.getElementById('carousel');
   const dotsContainer = document.getElementById('dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
   
   // Card data matching the image
   const cardData = [
-    { title: "Round", desc: "Every diamond in our collection", img: "round.png" },
-    { title: "Emerald", desc: "Every diamond in our collection", img: "diamond.png" },
-    { title: "Princess", desc: "Every diamond in our collection", img: "round.png" },
-    { title: "Oval", desc: "Every diamond in our collection", img: "oval.png" },
-    { title: "Heart", desc: "Every diamond in our collection", img: "heart.png" },
-    { title: "Asscher", desc: "Every diamond in our collection", img: "asscher.png" },
-    { title: "Cushion", desc: "Every diamond in our collection", img: "heart.png" }
+    { title: "Round", desc: "Every diamond in our collection", img: "images/round.webp" },
+    { title: "Emerald", desc: "Every diamond in our collection", img: "images/diamond.webp" },
+    { title: "Princess", desc: "Every diamond in our collection", img: "images/round.webp" },
+    { title: "Oval", desc: "Every diamond in our collection", img: "images/oval.webp" },
+    { title: "Heart", desc: "Every diamond in our collection", img: "images/heart.webp" },
+    { title: "Asscher", desc: "Every diamond in our collection", img: "images/asscher.webp" },
+    { title: "Cushion", desc: "Every diamond in our collection", img: "images/heart.webp" }
   ];
   
-  let currentIndex = Math.floor(cardData.length / 2); // Start with middle card centered
+  let currentIndex = Math.floor(cardData.length / 2);
   const totalCards = cardData.length;
-  const visibleCards = 7; // Show all 7 cards
+  let visibleCards = getVisibleCardsCount();
+  
+  // Get number of visible cards based on screen width
+  function getVisibleCardsCount() {
+    if (window.innerWidth <= 768) return 3;
+    if (window.innerWidth <= 1200) return 5;
+    return 7;
+  }
   
   // Initialize carousel
   function initCarousel() {
@@ -283,14 +289,25 @@ document.addEventListener('DOMContentLoaded', function() {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <img src="${data.img}" class="card-img" alt="${data.title}">
-        <h3 class="card-title">${data.title}</h3>
-        <p class="card-desc">${data.desc}</p>
+        <div class="card-image-container">
+          <img src="${data.img}" class="card-img" alt="${data.title}">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">${data.title}</h3>
+          <p class="card-desc">${data.desc}</p>
+        </div>
       `;
       carousel.appendChild(card);
     });
     
     // Create dots
+    updateDots();
+    
+    positionCards();
+  }
+  
+  // Update dot indicators
+  function updateDots() {
     dotsContainer.innerHTML = '';
     for (let i = 0; i < totalCards; i++) {
       const dot = document.createElement('div');
@@ -301,14 +318,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       dotsContainer.appendChild(dot);
     }
-    
-    positionCards();
   }
   
-  // Position cards in 3D space
+  // Position cards in 3D space (preserving original tilt)
   function positionCards() {
     const cards = document.querySelectorAll('.card');
-    const centerIndex = Math.floor(visibleCards / 2);
+    visibleCards = getVisibleCardsCount();
     
     cards.forEach((card, index) => {
       // Calculate position relative to center
@@ -320,9 +335,29 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Calculate properties based on position
       const absPos = Math.abs(position);
+      
+      // Hide cards that are outside the visible range
+      if (absPos > Math.floor(visibleCards / 2)) {
+        card.style.opacity = '0';
+        card.style.pointerEvents = 'none';
+        card.style.zIndex = '0';
+        return;
+      }
+      
       const zIndex = visibleCards - absPos;
       const scale = 1 - absPos * 0.01;
-      const offsetX = position * 180;
+      
+      // Adjust offset based on screen size but maintain the same rotation
+      let offsetX;
+      if (window.innerWidth <= 768) {
+        offsetX = position * 100; // Smaller offset for mobile
+      } else if (window.innerWidth <= 1200) {
+        offsetX = position * 130; // Medium offset for tablet
+      } else {
+        offsetX = position * 180; // Default offset for desktop
+      }
+      
+      // Preserve the original rotation values
       const rotateDeg = -position * 15;
       const zTranslate = -absPos * 0;
       
@@ -341,14 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     updateDots();
-  }
-  
-  // Update dot indicators
-  function updateDots() {
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentIndex);
-    });
   }
   
   // Go to specific card
@@ -393,13 +420,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Button event listeners
-  prevBtn.addEventListener('click', prevCard);
-  nextBtn.addEventListener('click', nextCard);
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      positionCards();
+    }, 250);
+  });
   
   // Initialize the carousel
   initCarousel();
   
+  // Add touch events for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  carousel.parentElement.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+  
+  carousel.parentElement.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // Swipe left - next card
+      nextCard();
+    }
+    
+    if (touchEndX > touchStartX + swipeThreshold) {
+      // Swipe right - previous card
+      prevCard();
+    }
+  }
 });
 
 // Subscribe form handler

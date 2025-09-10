@@ -3,6 +3,9 @@
   --muted: #6b7280;
   --accent-red: #d92626;
 }
+.text-danger.small {
+  color: #cc0000 !important; /* Darker red for better contrast */
+}
 
 body {
   font-family: Inter, system-ui, sans-serif;
@@ -10,7 +13,19 @@ body {
   margin: 20px;
   background: #fff;
 }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 10000;
+}
 
+.skip-link:focus {
+  top: 0;
+}
 /* NAVBAR */
 
 .navbar-nav .nav-link {
@@ -74,11 +89,13 @@ color: black !important;
 
 .hero .view-detail {
   display: inline-block;
-  padding: 0.35rem 3rem 0.35rem 3rem;
-  background: #000;
-  color: white;
+  padding: 0.5rem 5rem 0.5rem 5rem;
+  background: #151515;
+  color: #fafafa;
   text-decoration: none;
   border-radius: 100px;
+  font-size: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
   font-weight: 500;
   font-family:Georgia, 'Times New Roman', Times, serif
@@ -192,7 +209,7 @@ color: black !important;
 
 /* Collections Section */
 .collections-section {
-  padding: 4rem 0;
+  padding: 1rem 0;
   position: relative;
   z-index: 2;
 }
@@ -207,7 +224,7 @@ color: black !important;
 
 .collections-description {
   font-size: 1.1rem;
-  color: #6b7280;
+  color: #929292;
   margin-bottom: 3rem;
   line-height: 1.6;
 }
@@ -265,7 +282,6 @@ color: black !important;
   margin-bottom: 0;
 }
 
-
 /* 3D Diamond Carousel Styles */
 .carousel-container {
   position: relative;
@@ -301,11 +317,12 @@ color: black !important;
   left: 0;
   right: 0;
   margin: 0 auto;
+  border:#DFDFDF solid 1px;
 }
 
-.card:hover {
+/* .card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .card-image-container {
   padding: 2rem 1.5rem 0;
@@ -390,7 +407,8 @@ color: black !important;
 .container1 p {
   font-size: 1.8rem;
   line-height: 1.6;
-  font-weight: 0;
+  color: #929292 !important;
+  
 }
 .footer {
   padding-top: 1.5rem;
@@ -419,8 +437,10 @@ body hr {
 /* Subscribe form */
 .subscribe-form {
   display: flex;
+  margin-top: 7rem;
   flex-direction: column;
   max-width: 560px;
+  
 }
 
 .subscribe-form input {
@@ -438,7 +458,7 @@ body hr {
 }
 
 .subscribe-form button {
-  background: #000;
+  background: #151515;
   color: #fff;
   font-size: 1.4rem;
   border: none;
@@ -491,11 +511,12 @@ body hr {
 
 /* Brand description */
 .footer .text-muted {
-  font-size: 0.95rem;
-  max-width: 600px;
+  font-size: 1.1rem;
+  max-width: 900px;
   margin: 0 auto;
   line-height: 1.6;
   color:#929292 !important;
+  letter-spacing: 0.04em;
 }
 
 /* Footer Links */
@@ -513,8 +534,9 @@ body hr {
 
 /* Logos */
 .footer-logos img {
-  height: 40px;           /* unified size */
-  margin: 0 12px;
+  height: 50px;           /* unified size */
+  margin-top: 40px;
+  margin-bottom:2px;
   opacity: 0.85;
   transition: opacity 0.3s;
 }
@@ -557,8 +579,8 @@ body hr {
   }
   
   .card-image-c {
-    padding: 1rem 1rem 0;
-    height: 210px;
+    padding: 0rem 1rem 0;
+    height: 150px;
     width: 100%;
   }
   
@@ -582,7 +604,75 @@ body hr {
     height: 200px;
     padding: 1.5rem 1rem 0;
   }
+
+  .container1 h3{
+    font-size:1.7rem;
+  }
+  .footer h3 {
+    font-size: 2rem;
+  }
+
+  .container1 p{
+    font-size:1.1rem;
+  }
+  .subscribe-form input{
+    font-size:1.1rem;
+  }
+  .subscribe-form button{
+    font-size:1rem;
+    max-width:170px;
+    padding:10px 10px;
+  }
+
+  .footer .brand {
+    font-size: 1.4rem;
+  }
+
+  .footer .text-danger.small {
+    font-size: 1rem;
+  }
+
+  .footer .text-muted {
+    font-size: 0.9rem;
+  }
+
+  .footer-links a {
+    margin: 0 12px;
+    font-size: 0.9rem;
+  }
+
+  .footer-logos img {
+    height: 32px;
+    margin: 0 8px;
+  }
+
+  .footer p.small {
+    font-size: 0.7rem;
+  }
+  .carousel-container {
+    height: 380px;
+    perspective: 800px;
+  }
+  
+  .card {
+    width: 220px;
+    height: 320px;
+  }
+  
+  .card-image-container {
+    height: 200px;
+    padding: 1.5rem 1rem 0;
+  }
+  
+  .card-content {
+    padding: 1.2rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
 }
+
 
 @media (max-width: 768px) {
   .hero .title {
@@ -640,9 +730,8 @@ body hr {
   .collections-section {
     padding: 2rem 0;
   }
-  
-  .collections-title {
-    font-size: 2rem;
+  .subscribe-form {
+  margin-top: 2rem;
   }
   
   .collections-description {
@@ -667,18 +756,19 @@ body hr {
     font-size: 1.1rem;
   }
 .carousel-container {
-    height: 350px;
+    height: 320px;
     margin-bottom: 3rem;
+    perspective: 600px;
   }
   
   .card {
-    width: 200px;
-    height: 300px;
+    width: 180px;
+    height: 280px;
   }
   
   .card-image-container {
-    height: 180px;
-    padding: 1rem 1rem 0;
+    height: 160px;
+    padding: 1rem 0.8rem 0;
   }
   
   .card-content {
@@ -686,7 +776,11 @@ body hr {
   }
   
   .card-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .card-desc {
+    font-size: 0.85rem;
   }
   
   .dots {
@@ -695,8 +789,54 @@ body hr {
    image-grid {
     margin-top: 20px;
   }
-  .footer-links a {
+  .container1 h3,
+  .footer h3 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .container1 p,
+  .footer p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer .brand {
+    font-size: 1.2rem;
     display: block;
-    margin: 8px 0;
+  }
+
+  .footer .text-danger.small {
+    font-size: 0.9rem;
+  }
+
+  .footer .text-muted {
+    font-size: 0.85rem;
+    max-width: 90%;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-logos img {
+    height: 28px;
+    margin: 6px;
+  }
+
+  .footer p.small {
+    font-size: 0.65rem;
+    line-height: 1.4;
+    padding: 0 15px;
+  }
+  .subscribe-form input{
+    text-align: center;
+  }
+  .subscribe-form button{
+    max-width: 170px;
+    padding: 10px 50px 10px 50px;
+    align-self: center;
   }
 }
