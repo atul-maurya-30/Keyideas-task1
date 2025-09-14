@@ -88,9 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const item = items[idx];
 
     bgTitleEl.style.transformOrigin = "center center";
-    bgTitleEl.style.whiteSpace = "nowrap";
-    bgTitleEl.style.textAlign = "center";
-    bgTitleEl.style.willChange = "transform, opacity";
+
+if (window.matchMedia("(min-width: 992px)").matches) {
+  // Large screens → no wrapping
+  bgTitleEl.style.whiteSpace = "nowrap";
+} else {
+  // Small screens → wrapping allowed
+  bgTitleEl.style.whiteSpace = "wrap";
+}
+
+bgTitleEl.style.textAlign = "center";
+bgTitleEl.style.willChange = "transform, opacity";
+
 
     const startX =
       direction === "left" ? -offsetX : direction === "right" ? offsetX : 0;
