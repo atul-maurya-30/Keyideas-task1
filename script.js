@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
       topOffset = 0;
   } 
   else if (window.matchMedia("(max-width: 375px)").matches) {
-      offsetX = 130;
-      offsetY = 30;
+      offsetX = 140;
+      offsetY = 0;
       topOffset = 0;
   } 
   else if (window.matchMedia("(max-width: 414px)").matches) {
-      offsetX = 140;
-      offsetY = 20;
+      offsetX = 150;
+      offsetY = 0;
       topOffset = 0;
   } 
   else if (window.matchMedia("(max-width: 480px)").matches) {
