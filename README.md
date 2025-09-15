@@ -1,7 +1,7 @@
 # Keyideas Project
 
 ## 📌 Overview
-This includes various implementations covering frontend and styling tasks to enhance functionality and user experience.
+This project includes various implementations covering frontend and styling tasks to enhance functionality and user experience.
 
 ---
 
