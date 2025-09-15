@@ -693,6 +693,7 @@ body {
   font-size: 1.8rem;
   line-height: 1.6;
   font-weight: 400;
+  padding-bottom:20px;
 }
 
 .footer .text-center {
@@ -704,7 +705,12 @@ body hr {
   margin: 3rem 5rem 2rem !important;
 
 }
-
+.mobile-hr{
+    display:block;
+  }
+.desk-hr{
+  display:none;
+}
 /* Subscribe form */
 .subscribe-form {
   display: flex;
@@ -846,7 +852,9 @@ body hr {
   max-width: 100%;
   padding: 0px 50px 0px 50px;
 }
-
+.terms{
+  display:none;
+}
 /* ===== ENHANCED RESPONSIVE STYLES ===== */
 
 /* Large desktop screens (above 1400px) */
@@ -1731,7 +1739,12 @@ body hr {
     font-size: 0.9rem;
     padding: 8px 50px 8px 50px;
   }
-
+.mobile-hr{
+  display:none;
+}
+.desk-hr{
+display:block;
+}
   .image-grid {
     gap: 8px;
   }
@@ -1758,10 +1771,6 @@ body hr {
     font-size: 0.85rem;
   }
 
-  .footer-logos {
-    gap: 2px;
-  }
-
   .footer-logos img {
     height: 15px;
     margin: 3px 0px;
@@ -1774,7 +1783,20 @@ body hr {
   .footer p.small {
     padding-bottom: 20px;
   }
+body hr {
+  border: 0.1px solid #000000;
+  margin: 1rem 2rem 1rem !important;
 
+}
+.america{
+  display:none;
+}
+.footer-logos{
+  gap:6px;
+}
+.footer-links a{
+  text-decoration:underline;
+}
   .social-buttons {
     left: 5px;
     bottom: 5px;
@@ -1793,8 +1815,15 @@ body hr {
     width: 22px;
     height: 22px;
   }
-}
+  .terms{
+    display:block;
+    font-size:0.6rem;
+    color:#929292;
+    font-weight:100;
+    padding-bottom:20px;
 
+  }
+}
 /* Special adjustments for very small screens */
 @media (max-width: 350px) {
   .navbar-brand {
