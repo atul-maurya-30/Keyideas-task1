@@ -25,21 +25,6 @@ This project includes various implementations covering frontend and styling task
 
 ---
 
-## 📂 Project Structure
-project-root/
-│── index.html
-│── style.css
-│── script.js
-│── /images
-│ ├── grid1.webp
-│ ├── grid2.webp
-│ ├── grid3.webp
-│ ├── grid4.webp
-│ ├── ......
-│ ├── logos/...
-
----
-
 ## ⚙️ Setup & Usage
 1. Clone or download the repository.  
 2. Place it in your working directory.  
