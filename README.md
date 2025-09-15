@@ -1,8 +1,7 @@
 # Keyideas Project
 
 ## 📌 Overview
-This project was developed as part of my work with **Keyideas Infotech**.  
-It includes various implementations covering frontend, backend, and styling tasks to enhance functionality and user experience.
+This includes various implementations covering frontend and styling tasks to enhance functionality and user experience.
 
 ---
 
