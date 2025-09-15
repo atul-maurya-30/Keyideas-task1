@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
       img: "images/diamond.webp",
     },
     {
-      title: "Princess",
+      title: "Round",
       desc: "Every diamond in our collection",
       img: "images/round.webp",
     },
@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
       img: "images/asscher.webp",
     },
     {
-      title: "Cushion",
+      title: "Heart",
       desc: "Every diamond in our collection",
       img: "images/heart.webp",
     },

@@ -543,7 +543,9 @@ body {
   line-height: 1.4;
   margin-bottom: 0;
 }
-
+#loose-diamonds .text-muted{
+  color:#929292 !important;
+}
 /* 3D Diamond Carousel Styles */
 .carousel-container {
   position: relative;
@@ -693,7 +695,10 @@ body {
   font-size: 1.8rem;
   line-height: 1.6;
   font-weight: 400;
-  padding-bottom:20px;
+  /* padding-bottom:20px; */
+}
+.margin-hr{
+  margin-top:0px!important;
 }
 
 .footer .text-center {
@@ -729,6 +734,7 @@ body hr {
   outline: none;
   background: transparent;
   width: 560px;
+  color:#929292 !important;
 }
 
 .subscribe-form input:focus {
