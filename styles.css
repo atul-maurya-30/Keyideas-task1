@@ -661,8 +661,8 @@ body {
   color: #000;
   font-family: 'montserrat', sans-serif !important;
   margin-top: 3rem !important;
-  padding-left:4px;
-  padding-right:4px;
+  padding-left:2px!important;
+  padding-right:2px!important;
 }
 
 .container1 h3 {

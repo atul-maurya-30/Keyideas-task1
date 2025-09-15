@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       offsetY = 0;
       topOffset = 0;
     } else if (window.matchMedia("(max-width: 375px)").matches) {
-      offsetX = 100;
+      offsetX = 130;
       offsetY = 0;
       topOffset = 0;
     } else if (window.matchMedia("(max-width: 414px)").matches) {
